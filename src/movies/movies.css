@@ -1,0 +1,13 @@
+.titulo{
+    font-size: 30px;
+    color:red;
+}
+
+.cardHover{
+    transition: transform 0.3s;
+}
+
+.cardHover:hover{
+    transform:scale(1.1);
+}
+
