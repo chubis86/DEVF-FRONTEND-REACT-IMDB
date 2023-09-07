@@ -8,6 +8,29 @@ export default function Movies(props){
     const [search, setSearch] = useState("");
     const [pelisFilter, setPelisFilter] = useState([]);
     
+/////////////////////////
+const url = 'https://imdb-top-100-movies.p.rapidapi.com/';
+const options = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': '7eda3bf104msh6967cdc48b109afp1d144cjsn7ec6aafad4e3',
+		'X-RapidAPI-Host': 'imdb-top-100-movies.p.rapidapi.com'
+	}
+};
+
+async function prueba(){
+    try {
+        const response = await fetch(url, options);
+        const result = await response.text();
+        console.log(result);
+    } catch (error) {
+        console.error(error);
+    }
+}
+prueba();
+/////////////////////////////
+ 
+
 
     useEffect(()=>{
         if(loading){
