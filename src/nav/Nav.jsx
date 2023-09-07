@@ -13,6 +13,7 @@ export default function NavComponent() {
             <NavLink href="/">Home</NavLink>
             <NavLink href="/comedia">COMEDIA</NavLink>
             <NavLink href="/independientes">INDEPENDIENTES</NavLink>
+            <NavLink href="/top100">TOP 100 MOVIES EVER!!!</NavLink>
         </Nav>
       </Navbar.Collapse>
     </Container>

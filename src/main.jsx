@@ -26,13 +26,13 @@ const router = createBrowserRouter([
       },
       {
         path:"/independientes",
-        element: <Movies genero="independientes"  key={"independientes"}/>,
-        children:[
-          {
-            path:"independientes/:pelicula",
-            element: <Detailmovie key={1}/>        
-          }
-        ]
+        element: <Movies genero="independientes"  key={"independientes"}/>
+        
+      },
+      {
+        path:"/top100",
+        element: <Movies genero="top100"  key={"top100"}/>
+        
       }
     ]
   },
