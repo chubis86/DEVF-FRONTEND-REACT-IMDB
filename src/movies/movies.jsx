@@ -6,6 +6,7 @@ export default function Movies(props){
     const [loading, setLoading] = useState(true);
     const [data, setData] = useState();
     const [search, setSearch] = useState("");
+    const [search2, setSearch2] = useState("");
     const [pelisFilter, setPelisFilter] = useState([]);
     
 //////Método para api de las top100 movies
@@ -33,7 +34,7 @@ async function top100(){
 useEffect(()=>{
     if(loading){
         if(`${props.genero}`=='top100'){
-            setPelisFilter(top100());
+            //console.log("No funciona la api en cuestión por exceso de pago");
         }else{
             fetch(`https://api-pelis-back.onrender.com/${props.genero}`)
             .then(response=> response.json())
@@ -43,12 +44,14 @@ useEffect(()=>{
                 setData(data);
                 setLoading(false);
                 setPelisFilter(data.peliculas)
+                console.log(data.peliculas);
             })
         }        
     }
         
 }, []);
     
+//Para buscar pelóculas por nombre
     const handleSearch = (e) =>{
         
         let value = e.target.value;
@@ -62,6 +65,23 @@ useEffect(()=>{
         }
          
     }
+
+//Para buscar películas por calificación
+const handleSearch2 = (e) =>{
+    console.log(e.target.value);
+    setSearch2(e.target.value);
+    
+    if(e.target.value=='TODO'){
+        const filterMovies= data.peliculas;
+        setPelisFilter(filterMovies);    
+    }else{
+        const filterMovies= data.peliculas.filter((movie) => Math.trunc(movie.calificacion)==e.target.value);
+        setPelisFilter(filterMovies);
+    }
+    
+         
+}
+
 
     if(loading){
         return 
@@ -77,7 +97,21 @@ useEffect(()=>{
              <div className="container-fluid mt-5">
                 <div className="row mb-5 text-center">
                     <div className="col">
-                        <input type="text" onChange={handleSearch} className="search"  />
+                        <label htmlFor="">BUSCAR PELÍCULA</label>
+                        <input id='buscar1' type="text" onChange={handleSearch} className="search"  />
+                    </div>
+                    <div className="col">
+                        <label htmlFor="">BUSCAR PELÍCULAS POR CALIFICACIÓN</label>
+                        <select id='buscar2' defaultValue={6} onChange={handleSearch2} className="search">  
+                            <option>TODO</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+
+                        </select>
+                        
                     </div>
                 </div>
 
