@@ -9,6 +9,7 @@ import Movies from './movies/movies.jsx';
 import Home from './home/home';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Detailmovie from './movies/detailMovie/Detailmovie';
+import Footer from './assets/componentes/Footer/Footer';
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,8 @@ const router = createBrowserRouter([
         
       }
     ]
+    
+
   },
   {
     path:":genero/:pelicula",

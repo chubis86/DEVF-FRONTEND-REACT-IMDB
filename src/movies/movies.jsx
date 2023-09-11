@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import CardComponent from "../assets/componentes/Card/Card";
 import "./movies.css";
+import {Row, Col, Form} from 'react-bootstrap';
 
 export default function Movies(props){    
     const [loading, setLoading] = useState(true);
@@ -91,40 +92,53 @@ const handleSearch2 = (e) =>{
     }else{
         return (
             <>
-
+            <div className="principal">    
+                
+                
+                <div className="container-fluid mt-5">
                 <h1 className="titulo">Welcome {data.genero}</h1>
-            
-             <div className="container-fluid mt-5">
-                <div className="row mb-5 text-center">
-                    <div className="col">
-                        <label htmlFor="">BUSCAR PELÍCULA</label>
-                        <input id='buscar1' type="text" onChange={handleSearch} className="search"  />
-                    </div>
-                    <div className="col">
-                        <label htmlFor="">BUSCAR PELÍCULAS POR CALIFICACIÓN</label>
-                        <select id='buscar2' defaultValue={6} onChange={handleSearch2} className="search">  
-                            <option>TODO</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
+                    <div className="row mb-5 text-center ">
+                        
+                            <Form>
+                                <Row>
+                                    <Col md={6}>
+                                        <Form.Group className="mb-2" controlId="formulario">
+                                            <Form.Label>BUSCAR PELÍCULA</Form.Label>
+                                            <Form.Control input id='buscar1' type="text" onChange={handleSearch} className="search"  />
+                                        </Form.Group>
+                                    </Col>
+                                    <Col md={6}>
+                                        <Form.Group className="mb-2" controlId="formulario">
+                                            <Form.Label>BUSCAR PELÍCULAS POR CALIFICACIÓN</Form.Label>
+                                            <Form.Select id='buscar2' defaultValue={6} onChange={handleSearch2} className="search">  
+                                                <option>TODO</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
 
-                        </select>
+                                            </Form.Select>
+                                        </Form.Group>
+                                    </Col>
+                                </Row>
+                            </Form>
+                                                
+                        
                         
                     </div>
-                </div>
 
-                <div className="row">
-                {pelisFilter.map((movie, index) =>{
-                    return (
-                    <div className="col cardHover">
-                     <CardComponent key={index} movie={movie} /> 
+                    <div className="row filas" >
+                    {pelisFilter.map((movie, index) =>{
+                        return (
+                        <div className="col cardHover">
+                        <CardComponent key={index} movie={movie} /> 
+                        </div>
+                        )
+                    })}           
                     </div>
-                    )
-                })}           
                 </div>
-            </div>
+            </div>    
             </>
         );
     

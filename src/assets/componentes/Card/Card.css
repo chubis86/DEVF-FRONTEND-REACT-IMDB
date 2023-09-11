@@ -1,0 +1,8 @@
+.card-image{
+    height: 400px;
+}
+
+.card-texto{
+    height: 100px;
+    overflow: hidden;
+}

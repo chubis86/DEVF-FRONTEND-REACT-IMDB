@@ -1,0 +1,20 @@
+.footer{
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    background-color: black;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    align-items: center;
+    color:white;
+    font-weight: bold;
+    flex-wrap: wrap;
+}
+
+.col-der{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
